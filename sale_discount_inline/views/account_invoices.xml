@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="discount_account_invoice_view_form_inherit" model="ir.ui.view">
+            <field name="name">discount.account.invoice.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_info']/group/group[@name='sale_info_group']/field[@name='invoice_origin']" position="after">
+                    <field name="inline_discount_type"/>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']/field[@name='invoice_line_ids']/tree/field[@name='discount']" position="replace">
+                    <field name="discount" string="Discount" optional="show"/>
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
