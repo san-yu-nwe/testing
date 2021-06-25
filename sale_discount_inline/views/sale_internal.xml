@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_order_view_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']/group/group[@name='sales_person']" position="inside">
+                    <field name="inline_discount_type"/>
+                </xpath>
+
+                <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='discount']" position="replace">
+                    <field name="discount" string="Discount" groups="product.group_discount_per_so_line" optional="show"/>
+                </xpath>
+
+            </field>
+
+        </record>
+</odoo>
